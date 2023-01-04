@@ -1,1 +1,1 @@
-﻿# Čia keliami atsiskaitimų kodai
+﻿# Čia keliami atsiskaitymų kodai
