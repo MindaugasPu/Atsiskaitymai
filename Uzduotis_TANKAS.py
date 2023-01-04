@@ -112,4 +112,4 @@ Jūsų veiksmas:
         case _:
             print("Klaidinga įvestis. Bandyk dar kartą!")
 
-#commit testas 2
+#commit testas 3
