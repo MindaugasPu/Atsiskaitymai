@@ -41,27 +41,27 @@ class Tankas:
         return self.suviai, self.registras
 
     def info(self):
-        print(f'Tanko padėtis x:{self.x} y:{self.y}, kryptis į {self.kryptis} || Bendras šūvių skaičius:'
-              f' {self.suviai} - {self.registras}')
-        print(f'Taškų likutis {self.taskai}, pataikymai į priešą {self.pataikymai}')
+        print(f'Tanko padėtis x:{self.x} y:{self.y}, nusitaikyta {self.kryptis} kryptimi')
+        print(f'Šūvių statistika: viso iššauta - {self.suviai}, pagal kryptis {self.registras}')
+        print(f'Taškų likutis {self.taskai}, sunaikinta taikinių - {self.pataikymai}')
 
     def taikinys(self):
-        self.x2 = randint(-10, 10)
-        self.y2 = randint(-10, 10)
-        return self.x2, self.y2
+        self.prieso_x = randint(-10, 10)
+        self.prieso_y = randint(-10, 10)
+        return self.prieso_x, self.prieso_y
 
     def taikinio_ataka(self):
-        if self.x == self.x2:
-            if self.y2 > self.y and self.kryptis == 'Š':
+        if self.x == self.prieso_x:
+            if self.prieso_y > self.y and self.kryptis == 'Š':
                 return True
-            if self.y2 < self.y and self.kryptis == 'P':
+            if self.prieso_y < self.y and self.kryptis == 'P':
                 return True
-        if self.y == self.y2:
-            if self.x2 > self.x and self.kryptis == 'R':
+        if self.y == self.prieso_y:
+            if self.prieso_x > self.x and self.kryptis == 'R':
                 return True
-            if self.x2 < self.x and self.kryptis == 'V':
+            if self.prieso_x < self.x and self.kryptis == 'V':
                 return True
-        if self.x == self.x2 and self.y == self.y2:
+        if self.x == self.prieso_x and self.y == self.prieso_y:
             print("Esi per arti taikinio, todėl ", end="")
             return False
 
@@ -111,4 +111,3 @@ Jūsų veiksmas:
             break
         case _:
             print("Klaidinga įvestis. Bandyk dar kartą!")
-
