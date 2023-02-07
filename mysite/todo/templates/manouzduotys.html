@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}<title>Mano užduotys</title>{% endblock %}
+{% block content %}
+
+    {% if uzduotis_list %}
+    <ul>
+
+      {% for uzduotis in uzduotis_list %}
+        <li>
+        {{ uzduotis }}
+            <br>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'redaguoti' uzduotis.id %}">Redaguoti</a>
+            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'istrinti' uzduotis.id %}">Ištrinti</a>
+          <hr>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>Šiuo metu užduočių neturite.</p>
+    {% endif %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; pirmas</a>
+            <a href="?page={{ page_obj.previous_page_number }}">atgal</a>
+        {% endif %}
+
+        <span class="current">
+            {{ page_obj.number }} iš {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">pirmyn</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">paskutinis &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}
